@@ -56,16 +56,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<configuration>
-					<appName>raketlabs-spring-hibernate</appName>
-					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* SpringJpaApplication</web>
-					</processTypes>
-				</configuration>
-			</plugin>
+
 		</plugins>
 	</build>
 
