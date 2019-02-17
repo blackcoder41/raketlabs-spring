@@ -8,6 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+
 import javax.validation.Valid;
 
 @RestController
@@ -25,6 +28,9 @@ public class QuestionController {
     @PostMapping("/questions")
     public Question createQuestion(@Valid @RequestBody Question question) {
         return questionRepository.save(question);
+    	
+    	//question.setCreatedAt(new Date());
+    	//return question;
     }
 
     @PutMapping("/questions/{questionId}")
