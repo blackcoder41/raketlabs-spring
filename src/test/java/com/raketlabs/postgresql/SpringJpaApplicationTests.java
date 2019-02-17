@@ -1,4 +1,4 @@
-package com.raketlabs.spring_jpa;
+package com.raketlabs.postgresql;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
