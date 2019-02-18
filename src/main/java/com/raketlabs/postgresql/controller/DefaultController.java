@@ -13,4 +13,15 @@ public class DefaultController {
 		model.addAttribute("name", name);
 		return "index";
 	}
+	
+	@GetMapping("/login")
+	public String login(@RequestParam(name="name", required=false, defaultValue="there") String name, Model model) {
+		model.addAttribute("name", name);
+		return "login";
+	}
+	
+	@GetMapping("/view_questions")
+	public String viewQuestions() {
+		return "view_questions";
+	}
 }

@@ -46,7 +46,7 @@
 </form>
 
 
-<a href="questions" target="_blank">View all questions</a>
+<a href="view_questions" target="_blank">View all questions</a>
     </div>
 
 </div>
@@ -76,7 +76,7 @@
 			success     : function(data) {
 				console.log("REQUEST SUCCESS");
 				console.log(data);
-				$("#txtOutput").html(JSON.stringify(data));
+				$("#txtOutput").val(JSON.stringify(data));
 			} 
 		});
 		

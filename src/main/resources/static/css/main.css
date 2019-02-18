@@ -1,0 +1,15 @@
+#wrapper {
+	max-width: 800px;
+	margin: auto;
+}
+
+#login-panel {
+	max-width: 360px;
+}
+
+@media (max-width: 375px) {
+    #wrapper {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

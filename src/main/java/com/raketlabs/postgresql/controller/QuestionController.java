@@ -21,16 +21,14 @@ public class QuestionController {
 
     @GetMapping("/questions")
     public Page<Question> getQuestions(Pageable pageable) {
-        return questionRepository.findAll(pageable);
+    	return questionRepository.findAll(pageable);
     }
 
 
     @PostMapping("/questions")
     public Question createQuestion(@Valid @RequestBody Question question) {
-        return questionRepository.save(question);
-    	
-    	//question.setCreatedAt(new Date());
-    	//return question;
+        questionRepository.save(question);
+    	return question;
     }
 
     @PutMapping("/questions/{questionId}")

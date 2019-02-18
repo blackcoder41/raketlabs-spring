@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: header">
+</head>
+<body>
+<div id="wrapper">
+
+<table class="table table-hover">
+<thead class="thead-dark">
+<tr>
+<th>Title</td>
+<th>Description</td>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<br>
+
+<a href="/questions">View raw response</a>
+
+<table class="template invisible">
+<tr><td class="col1"><a href="/questions/{id}/answers" class="text-dark">col1</a></td><td class="col2">col2</td></tr>
+</table>
+
+</div><!-- #wrapper -->
+
+<script>
+(function($) {
+	
+	$.ajax({
+		url         : "questions",
+		type        : "GET",
+		success     : function(data) {
+			
+			var tableContent = $(".table tbody");
+			
+			$.each(data.content, function(i, rowData) {
+				console.log(rowData["title"]);
+				var rowElement = $(".template tr").clone();
+				
+				var link = rowElement.find(".col1 a");
+				link.attr("href", (link.attr("href")).replace("{id}", rowData["id"]));
+				rowElement.find(".col1 a").html(rowData["title"]);
+				rowElement.find(".col2").html(rowData["description"]);
+				tableContent.append(rowElement);
+			});
+			
+			
+		} 
+	});
+	
+	
+
+
+})(jQuery);
+</script>	
+</body>
+</html>
