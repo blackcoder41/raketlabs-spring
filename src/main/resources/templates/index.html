@@ -32,8 +32,12 @@
 <br>
 
 <form>
+<label for="txtOutput">Output</label>
 <textarea rows="10" id="txtOutput" class="form-control"></textarea>
 </form>
+
+
+<a href="questions" target="_blank">View all questions</a>
     </div>
 
 </div>
@@ -44,7 +48,7 @@
 <script>
 (function($) {
 	
-	$("#frmQuestions").click(function() {
+	$("#frmQuestions").submit(function() {
 		
 		var json = {};
 		json.title = $("#txtTitle").val();
