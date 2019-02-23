@@ -10,7 +10,7 @@
 </head>
 <body>
  <div class="container">
-     <form class="form-horizontal" role="form" method="POST" th:action="@{/signup}" th:object="${adminuser}">
+     <form class="form-horizontal" role="form" method="POST" th:action="@{/signup?activity=1}" th:object="${adminuser}">
       <div class="row">
              <div class="col-md-3"></div>
              <div class="col-md-6">
@@ -23,6 +23,20 @@
              <div class="col-md-6">
                  <h2>Register New User</h2>
                  <hr>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-3 field-label-responsive">
+                 <label for="name">Username</label>
+             </div>
+             <div class="col-md-6">
+                 <div class="form-group">
+                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                         <input type="text" th:field="*{username}" class="form-control" id="username"
+                                placeholder="Username" required autofocus>
+                     </div>
+                 </div>
              </div>
          </div>
          <div class="row">
@@ -49,6 +63,20 @@
                          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                          <input type="text" th:field="*{lastname}" class="form-control" id="lastname"
                                 placeholder="Last name" required autofocus>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-3 field-label-responsive">
+                 <label for="name">Mobile Number</label>
+             </div>
+             <div class="col-md-6">
+                 <div class="form-group">
+                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                         <input type="text" th:field="*{mobile_no}" class="form-control" id="mobile_no"
+                                placeholder="Mobile Number" required autofocus>
                      </div>
                  </div>
              </div>

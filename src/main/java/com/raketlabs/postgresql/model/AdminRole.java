@@ -1,10 +1,15 @@
 package com.raketlabs.postgresql.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 @Table(name="role")
@@ -20,7 +25,7 @@ public class AdminRole {
 	private String role;
 	
 	@Column(name="value")
-	@NotEmpty
+	@NotNull
 	private String value;
 
 	public long getId() {

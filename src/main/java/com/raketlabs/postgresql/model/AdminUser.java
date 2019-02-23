@@ -1,13 +1,16 @@
 package com.raketlabs.postgresql.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigInteger;
 
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="adminuser")
@@ -16,7 +19,7 @@ public class AdminUser {
 	@Id
 	@Column(name="adminuser_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long adminuser_id;
+	private BigInteger adminuser_id;
 
 	@Column(name="username")
 	@NotEmpty
@@ -43,8 +46,8 @@ public class AdminUser {
 	private String mobile_no;
 	
 	@Column(name="activity")
-	@NotEmpty
-	private int activity;
+	@NotNull
+	private Integer activity;
 	
 //	@ManyToMany(cascade=CascadeType.ALL)
 //	@JoinTable(name="role", joinColumns = @JoinColumn(name="adminuser_id"), inverseJoinColumns = @JoinColumn(name="id"))
@@ -52,11 +55,11 @@ public class AdminUser {
 	
 	//setter and getter
 
-	public long getAdminuser_id() {
+	public BigInteger getAdminuser_id() {
 		return adminuser_id;
 	}
 
-	public void setAdminuser_id(long adminuser_id) {
+	public void setAdminuser_id(BigInteger adminuser_id) {
 		this.adminuser_id = adminuser_id;
 	}
 
@@ -108,11 +111,11 @@ public class AdminUser {
 		this.mobile_no = mobile_no;
 	}
 
-	public int getActivity() {
+	public Integer getActivity() {
 		return activity;
 	}
 
-	public void setActivity(int activity) {
+	public void setActivity(Integer activity) {
 		this.activity = activity;
 	}
 
