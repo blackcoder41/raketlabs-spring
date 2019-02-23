@@ -20,7 +20,7 @@ public class RegistrationController {
 
 	private AdminUserService adminUserService;
 	
-	@RequestMapping(value= {"/", "login"}, method=RequestMethod.GET)
+	@RequestMapping(value= {"login"}, method=RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("user/login");

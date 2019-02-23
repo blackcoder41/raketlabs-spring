@@ -26,7 +26,7 @@ public class DefaultController {
 		return "index";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/login2")
 	public String login(@RequestParam(name="name", required=false, defaultValue="there") String name, Model model) {
 		model.addAttribute("name", name);
 		return "login";
