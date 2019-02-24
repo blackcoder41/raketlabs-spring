@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="adminuser")
-public class AdminUser {
+public class AdminUser extends AuditModel {
 	
 	@Id
 	@Column(name="adminuser_id")
@@ -52,6 +52,11 @@ public class AdminUser {
 //	@ManyToMany(cascade=CascadeType.ALL)
 //	@JoinTable(name="role", joinColumns = @JoinColumn(name="adminuser_id"), inverseJoinColumns = @JoinColumn(name="id"))
 //	private Set<AdminRole> roles;
+	
+	@Override
+	public String toString() {
+		return username + " : " + email + " | " + getCreatedAt() + " | " + getUpdatedAt();
+	}
 	
 	//setter and getter
 
