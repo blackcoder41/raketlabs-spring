@@ -3,15 +3,17 @@
  xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Login</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
- 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+<script th:src="@{js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
 </head>
 <body>
 <div class="container">
   <div class="alert alert-danger" role="alert" th:if="${param.error}">
-   The email or password is incorrect!
+   Invalid username or password
   </div>
         <form th:action="@{/login}" method="post" >
           <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>

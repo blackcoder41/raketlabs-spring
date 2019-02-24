@@ -1,5 +1,7 @@
 package com.raketlabs.postgresql.service;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.raketlabs.postgresql.model.AdminUser;
 
 public interface AdminUserService {

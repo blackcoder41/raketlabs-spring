@@ -19,15 +19,15 @@ public class RegistrationController {
 
 	@Autowired
 	private AdminUserService adminUserService;
-	
-	@RequestMapping(value= {"login"}, method=RequestMethod.GET)
+
+	@RequestMapping(value = { "login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("user/login");
 		return model;
 	}
-	
-	@RequestMapping(value= {"/signup"}, method=RequestMethod.GET)
+
+	@RequestMapping(value = { "/signup" }, method = RequestMethod.GET)
 	public ModelAndView signup() {
 		ModelAndView model = new ModelAndView();
 		AdminUser adminUser = new AdminUser();
@@ -35,54 +35,49 @@ public class RegistrationController {
 		model.setViewName("user/signup");
 		return model;
 	}
-	
-	@RequestMapping(value= {"/signup"}, method=RequestMethod.POST)
-	public ModelAndView createUser(@Valid AdminUser adminUser, BindingResult bindingResult){
+
+	@RequestMapping(value = { "/signup" }, method = RequestMethod.POST)
+	public ModelAndView createUser(@Valid AdminUser adminUser, BindingResult bindingResult) {
 		ModelAndView model = new ModelAndView();
-		
+
 		model.addObject("adminuser", adminUser);
-		
+
 		AdminUser adminUserExists = adminUserService.findByUsername(adminUser.getUsername());
-		
-		if(adminUserExists != null){
+
+		if (adminUserExists != null) {
 			bindingResult.rejectValue("username", "error.adminUser", "This username already exists!");
 		}
-		
-		if(bindingResult.hasErrors()){
-			
+
+		if (bindingResult.hasErrors()) {
+
 			System.out.println("RAKET_LABS_DEBUG: " + bindingResult.toString());
-			
+
 			model.setViewName("user/signup");
-		}else {
-			
-			
-			
-			
-			
-			
+		} else {
+
 			adminUserService.saveAdminUser(adminUser);
 			model.addObject("msg", "User has been registered successfully!");
 			model.addObject("adminUser", new AdminUser());
 			model.setViewName("user/signup");
-		}	
+		}
 		return model;
 	}
-	
-	@RequestMapping(value= {"/home/home"}, method=RequestMethod.GET)
-	 public ModelAndView home() {
-	  ModelAndView model = new ModelAndView();
-	  Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	  AdminUser adminUser = adminUserService.findByUsername(auth.getName());
-	  
-	  model.addObject("userName", adminUser.getFirstname() + " " + adminUser.getLastname());
-	  model.setViewName("home/home");
-	  return model;
-	 }
-	 
-	 @RequestMapping(value= {"/access_denied"}, method=RequestMethod.GET)
-	 public ModelAndView accessDenied() {
-	  ModelAndView model = new ModelAndView();
-	  model.setViewName("errors/access_denied");
-	  return model;
-	 }
+
+	@RequestMapping(value = { "/home/home" }, method = RequestMethod.GET)
+	public ModelAndView home() {
+		ModelAndView model = new ModelAndView();
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		AdminUser adminUser = adminUserService.findByUsername(auth.getName());
+
+//		model.addObject("userName", adminUser.getFirstname() + " " + adminUser.getLastname());
+		model.setViewName("user/home");
+		return model;
+	}
+
+	@RequestMapping(value = { "/access_denied" }, method = RequestMethod.GET)
+	public ModelAndView accessDenied() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("errors/access_denied");
+		return model;
+	}
 }
