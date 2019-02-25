@@ -43,8 +43,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers("/").permitAll()
 		.antMatchers("/questions").permitAll()
 		.antMatchers("/login").permitAll()
-		.antMatchers("/login2").permitAll()
-		.antMatchers("/register").permitAll()
 		.antMatchers("/view_questions").permitAll()
 		.antMatchers("/signup").permitAll()
 		.antMatchers("/css/**").permitAll()
@@ -66,28 +64,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.accessDeniedPage("/access_denied");
 	}
 	
-
-//	@Bean
-//	public PersistentTokenRepository persistentTokenRepository() {
-//		JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-//		db.setDataSource(dataSource);
-//
-//		return db;
-//	}
-	
-
-	
-
-//    @Bean
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user =
-//             User.withDefaultPasswordEncoder()
-//                .username("user")
-//                .password("password")
-//                .roles("USER")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(user);
-//    }
 }
