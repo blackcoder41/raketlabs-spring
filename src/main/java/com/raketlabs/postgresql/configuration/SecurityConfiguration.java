@@ -27,14 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-	@Autowired
-	private DataSource dataSource;
-
-	private final String AdminUser_Query = "select email, password, activity from user where email=?";
-	private final String AdminRole_Query = "select u.email, r.role from adminuser u inner join role "
-			+ "ur on (u.id = ur.adminuser_id) inner join role r on (ur.id = r.id) where u.email=?";
-
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()

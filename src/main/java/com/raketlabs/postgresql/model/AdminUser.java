@@ -49,13 +49,9 @@ public class AdminUser extends AuditModel {
 	@NotNull
 	private Integer activity;
 	
-//	@ManyToMany(cascade=CascadeType.ALL)
-//	@JoinTable(name="role", joinColumns = @JoinColumn(name="adminuser_id"), inverseJoinColumns = @JoinColumn(name="id"))
-//	private Set<AdminRole> roles;
-	
 	@Override
 	public String toString() {
-		return username + " : " + email + " | " + getCreatedAt() + " | " + getUpdatedAt();
+		return username + " : " + email + " | " + getCreatedAt() + " | " + getUpdatedAt() + " | " + getLast_login_at();
 	}
 	
 	//setter and getter
@@ -123,12 +119,4 @@ public class AdminUser extends AuditModel {
 	public void setActivity(Integer activity) {
 		this.activity = activity;
 	}
-
-//	public Set<AdminRole> getRoles() {
-//		return roles;
-//	}
-//
-//	public void setRoles(Set<AdminRole> roles) {
-//		this.roles = roles;
-//	}
 }

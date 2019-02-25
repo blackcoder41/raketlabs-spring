@@ -3,6 +3,7 @@ package com.raketlabs.postgresql.configuration;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +37,7 @@ public class WebmvcConfig implements WebMvcConfigurer {
 	AdminUserService mUserDetailService;
 	
     @Bean
-    public UserDetailsService userDetailsService() throws Exception {
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-// 
-//        
-//        String encodedPassword = passwordEncoder().encode("password");
-//        
-//        manager.createUser(User.builder().username("user").password(encodedPassword).roles("USER").build());
-//        
-        
+    public UserDetailsService userDetailsService() throws Exception {        
         
         return new UserDetailsService() {
 
@@ -54,6 +47,8 @@ public class WebmvcConfig implements WebMvcConfigurer {
 				
 				if (user == null) {
 		            throw new UsernameNotFoundException(username);
+		        }else{
+		        	mUserDetailService.saveLastLoginDate(user);
 		        }
 				
 				return new UserDetails() {
@@ -93,7 +88,6 @@ public class WebmvcConfig implements WebMvcConfigurer {
 					public boolean isEnabled() {
 						return true;
 					}};
-				
 			}
         	
         };

@@ -24,6 +24,11 @@ public abstract class AuditModel implements Serializable {
     @Column(name = "updated_at", nullable = false)
     @LastModifiedDate
     private Date updatedAt;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_login_at")
+    @LastModifiedDate
+    private Date last_login_at;
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -39,6 +44,14 @@ public abstract class AuditModel implements Serializable {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public Date getLast_login_at() {
+		return last_login_at;
+	}
+
+	public void setLast_login_at(Date last_login_at) {
+		this.last_login_at = last_login_at;
 	}
 
     // Getters and Setters (Omitted for brevity)

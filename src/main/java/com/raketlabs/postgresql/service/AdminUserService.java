@@ -9,4 +9,6 @@ public interface AdminUserService {
 	public AdminUser findByUsername(String username);
 	
 	public void saveAdminUser(AdminUser adminUser);
+	
+	public void saveLastLoginDate(AdminUser adminUser);
 }

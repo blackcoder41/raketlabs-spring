@@ -15,6 +15,7 @@ import com.raketlabs.postgresql.repository.RoleRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 
 @Service("adminUserService")
@@ -39,7 +40,12 @@ public class AdminUserServiceImpl implements AdminUserService {
 		adminUser.setPassword(bCryptPasswordEncoder.encode(adminUser.getPassword()));
 		adminUser.setActivity(1);
 		AdminRole role = adminRoleRepository.findByRole("ADMIN");
-		//adminUser.setRoles(new HashSet<AdminRole>(Arrays.asList(role)));
+		adminUserRepository.save(adminUser);
+	}
+	
+	@Override
+	public void saveLastLoginDate(AdminUser adminUser) {
+		adminUser.setLast_login_at(new Date());
 		adminUserRepository.save(adminUser);
 	}
 }
