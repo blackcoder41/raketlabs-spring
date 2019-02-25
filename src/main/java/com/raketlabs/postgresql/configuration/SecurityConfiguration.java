@@ -35,13 +35,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private final String AdminRole_Query = "select u.email, r.role from adminuser u inner join role "
 			+ "ur on (u.id = ur.adminuser_id) inner join role r on (ur.id = r.id) where u.email=?";
 
-	//christian
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-		// mr pandesal
-		
+
 		http.authorizeRequests()
 		.antMatchers("/").permitAll()
 		.antMatchers("/questions").permitAll()
