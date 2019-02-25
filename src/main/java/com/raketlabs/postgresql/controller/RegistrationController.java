@@ -66,10 +66,10 @@ public class RegistrationController {
 	@RequestMapping(value = { "/home/home" }, method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView model = new ModelAndView();
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		AdminUser adminUser = adminUserService.findByUsername(auth.getName());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		AdminUser adminUser = adminUserService.findByUsername(auth.getName());
 
-//		model.addObject("userName", adminUser.getFirstname() + " " + adminUser.getLastname());
+		model.addObject("userName", adminUser.getFirstname() + " " + adminUser.getLastname());
 		model.setViewName("user/home");
 		return model;
 	}
