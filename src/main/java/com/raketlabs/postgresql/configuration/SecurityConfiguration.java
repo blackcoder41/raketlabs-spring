@@ -37,6 +37,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		// mr pandesal
+		
 		http.authorizeRequests()
 		.antMatchers("/").permitAll()
 		.antMatchers("/questions").permitAll()
