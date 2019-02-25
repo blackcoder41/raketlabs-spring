@@ -37,16 +37,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
-		
 		http.authorizeRequests()
-
 		.antMatchers("/").permitAll()
 		.antMatchers("/questions").permitAll()
 		.antMatchers("/login").permitAll()
-		.antMatchers("/login3").permitAll()
-		.antMatchers("/login2").permitAll()
-		.antMatchers("/login4").permitAll()
 		.antMatchers("/view_questions").permitAll()
 		.antMatchers("/signup").permitAll()
 		.antMatchers("/css/**").permitAll()
@@ -66,7 +60,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.and().exceptionHandling()
 		.accessDeniedPage("/access_denied");
 	}
-	
-	//christian
-	
 }
